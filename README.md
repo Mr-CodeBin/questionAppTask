@@ -30,8 +30,19 @@
    - Create new project
    - Add an Android app to your Firebase project.
    - Follow the instructions to download the google-services.json (for Android) and place them in the appropriate directories.
-   - 
-   
+
+3. ## Environment Variables
+
+To run this project, you will need to add the following environment variables to your `.env` file :
+first, make new .env file in your Project root Dir. then add these data from firebase_options.dart.
+
+```plaintext
+FIREBASE_API_KEY= 'YOUR_API_KEY'
+FIREBASE_APP_ID= 'YOUR_APP_ID'
+FIREBASE_MESSAGING_SENDER_ID= 'YOUR_SENDER_ID'
+FIREBASE_PROJECT_ID= 'YOUR_PROJECT_ID'
+FIREBASE_STORAGE_BUCKET= 'YOUR_STORAGE_BUCKET'
+
 ## Screens
 
 1. **Authentication Screen**:
