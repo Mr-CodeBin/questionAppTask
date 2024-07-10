@@ -44,7 +44,7 @@ class ResultScreen extends StatelessWidget {
             //mcq test timer
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 36, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),

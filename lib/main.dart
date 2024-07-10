@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               if (usr == null) {
                 return LoginScreen();
               }
-              return HomeScreen();
+              return const HomeScreen();
             },
           )),
     );

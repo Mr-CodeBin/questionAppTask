@@ -17,7 +17,7 @@ class CustomTextfield extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(12),
+        contentPadding: const EdgeInsets.all(12),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -28,7 +28,7 @@ class CustomTextfield extends StatelessWidget {
         filled: true,
         fillColor: Colors.grey[200],
         labelText: labelText,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Colors.black54,
         ),
         enabledBorder: OutlineInputBorder(

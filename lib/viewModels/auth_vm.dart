@@ -36,7 +36,7 @@ class AuthViewModel extends ChangeNotifier {
         await _authService.signInWithEmailAndPassword(email, password);
 
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => HomeScreen(),
+      builder: (context) => const HomeScreen(),
     ));
   }
 

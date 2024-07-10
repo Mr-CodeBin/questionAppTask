@@ -17,7 +17,7 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _authViewModel = Provider.of<AuthViewModel>(context);
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.purple,
       body: SingleChildScrollView(
@@ -121,7 +121,7 @@ class SignupScreen extends StatelessWidget {
                           return;
                         }
 
-                        _authViewModel.registerWithEmailAndPassword(
+                        authViewModel.registerWithEmailAndPassword(
                           _nameController.text.trim(),
                           _emailController.text,
                           _passwordController.text,

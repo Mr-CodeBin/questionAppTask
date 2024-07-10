@@ -12,7 +12,7 @@ import 'package:mcqtest/services/Firestore/firestore_collections.dart';
 class QuestionViewModel extends ChangeNotifier {
   List<QuestionModel> _questions = [];
   int _currentQuestionIndex = 0;
-  int _testDuration = 5;
+  final int _testDuration = 5;
   DateTime? _startTime;
   DateTime? _endTime;
   StreakModel? _streakModel;

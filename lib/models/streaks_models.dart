@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-import 'package:mcqtest/models/question_model.dart';
 
 class StreakModel {
   List<String> questions;
@@ -32,7 +31,7 @@ class StreakModel {
     final streaks = await FirebaseFirestore.instance
         .collection('streaks')
         .where('timestamp',
-            isGreaterThanOrEqualTo: DateTime.now().subtract(Duration(days: 1)))
+            isGreaterThanOrEqualTo: DateTime.now().subtract(const Duration(days: 1)))
         .get();
 
     if (streaks.docs.isEmpty) {

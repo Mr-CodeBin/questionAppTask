@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mcqtest/viewModels/auth_vm.dart';
 import 'package:mcqtest/views/Auth/signup.dart';
 import 'package:mcqtest/views/Auth/widgets/cust_text_field.dart';
-import 'package:mcqtest/views/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,7 +13,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _authViewModel = Provider.of<AuthViewModel>(context);
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.purple,
       body: Column(
@@ -22,7 +21,7 @@ class LoginScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 36, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -60,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 50),
+                    minimumSize: const Size(double.infinity, 50),
                     backgroundColor: Colors.purple,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -68,14 +67,14 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    _authViewModel.signInWithEmailAndPassword(
+                    authViewModel.signInWithEmailAndPassword(
                         _emailController.text,
                         _passwordController.text,
                         context);
                   },
                   child: const Text('Login'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
@@ -84,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                   },
                   child: const Text('Don\'t have an account? Register'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           ),

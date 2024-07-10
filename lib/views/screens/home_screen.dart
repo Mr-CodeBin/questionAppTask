@@ -2,15 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mcqtest/models/question_model.dart';
 import 'package:mcqtest/viewModels/auth_vm.dart';
 import 'package:mcqtest/viewModels/ques_vm.dart';
 import 'package:mcqtest/views/screens/Streaks_screen.dart';
-import 'package:motion_tab_bar/MotionBadgeWidget.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
-import 'package:motion_tab_bar/MotionTabBarController.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,9 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final QuestionViewModel _questionViewModel =
+    final QuestionViewModel questionViewModel =
         Provider.of<QuestionViewModel>(context);
-    int questionsIndex = _questionViewModel.questions.length;
+    int questionsIndex = questionViewModel.questions.length;
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -53,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //mcq test
           SingleChildScrollView(
             child: SafeArea(
-              child: _questionViewModel.questions.isEmpty
+              child: questionViewModel.questions.isEmpty
                   ? const Center(
                       child: CircularProgressIndicator(),
                     )
@@ -118,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     onTap: () {
                                       log('index: $index');
 
-                                      _questionViewModel
+                                      questionViewModel
                                           .setCurrentQuestionIndex(index);
                                     },
                                     borderRadius: BorderRadius.circular(100),
@@ -127,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width: 40,
                                       height: 40,
                                       decoration: BoxDecoration(
-                                        color: _questionViewModel
+                                        color: questionViewModel
                                                     .currentQuestionIndex ==
                                                 index
                                             ? Colors.purple
@@ -184,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                "Question ${_questionViewModel.currentQuestionIndex + 1}",
+                                "Question ${questionViewModel.currentQuestionIndex + 1}",
                                 style: GoogleFonts.firaSansCondensed(
                                   fontSize: 22,
                                   fontWeight: FontWeight.w500,
@@ -195,9 +192,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 thickness: 2,
                               ),
                               Text(
-                                _questionViewModel
+                                questionViewModel
                                     .questions[
-                                        _questionViewModel.currentQuestionIndex]
+                                        questionViewModel.currentQuestionIndex]
                                     .question,
                                 // 'What is the capital of India?',
                                 style: const TextStyle(
@@ -208,9 +205,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               const SizedBox(height: 20),
                               ListView.builder(
                                 physics: const NeverScrollableScrollPhysics(),
-                                itemCount: _questionViewModel
+                                itemCount: questionViewModel
                                     .questions[
-                                        _questionViewModel.currentQuestionIndex]
+                                        questionViewModel.currentQuestionIndex]
                                     .options
                                     .length,
                                 shrinkWrap: true,
@@ -220,8 +217,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         vertical: 4.0, horizontal: 8),
                                     child: GestureDetector(
                                       onTap: () async {
-                                        if (_questionViewModel
-                                                .questions[_questionViewModel
+                                        if (questionViewModel
+                                                .questions[questionViewModel
                                                     .currentQuestionIndex]
                                                 .selectedAnswer !=
                                             null) {
@@ -231,32 +228,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                         // _questionViewModel.;
 
                                         setState(() {
-                                          _questionViewModel
-                                                  .questions[_questionViewModel
+                                          questionViewModel
+                                                  .questions[questionViewModel
                                                       .currentQuestionIndex]
                                                   .selectedAnswer =
-                                              _questionViewModel
-                                                  .questions[_questionViewModel
+                                              questionViewModel
+                                                  .questions[questionViewModel
                                                       .currentQuestionIndex]
                                                   .options[index];
 
-                                          if (_questionViewModel
-                                                  .questions[_questionViewModel
+                                          if (questionViewModel
+                                                  .questions[questionViewModel
                                                       .currentQuestionIndex]
                                                   .selectedAnswer ==
-                                              _questionViewModel
-                                                  .questions[_questionViewModel
+                                              questionViewModel
+                                                  .questions[questionViewModel
                                                       .currentQuestionIndex]
                                                   .answer) {}
                                         });
-                                        await _questionViewModel.updateStreak(
-                                            _questionViewModel.questions[
-                                                _questionViewModel
+                                        await questionViewModel.updateStreak(
+                                            questionViewModel.questions[
+                                                questionViewModel
                                                     .currentQuestionIndex]);
                                       },
                                       child: CustomQuestionButton(
-                                        question: _questionViewModel.questions[
-                                            _questionViewModel
+                                        question: questionViewModel.questions[
+                                            questionViewModel
                                                 .currentQuestionIndex],
                                         optionIndex: index,
                                       ),
@@ -278,17 +275,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           onPressed: () {
-                            if (_questionViewModel.currentQuestionIndex ==
-                                _questionViewModel.questions.length - 1) {
+                            if (questionViewModel.currentQuestionIndex ==
+                                questionViewModel.questions.length - 1) {
                               //
                               //fetching new questions after 10 questions
-                              _questionViewModel.fetchQuestions();
+                              questionViewModel.fetchQuestions();
                               return;
                             }
-                            _questionViewModel.setCurrentQuestionIndex(
-                                _questionViewModel.currentQuestionIndex + 1);
+                            questionViewModel.setCurrentQuestionIndex(
+                                questionViewModel.currentQuestionIndex + 1);
                           },
-                          child: _questionViewModel.currentQuestionIndex ==
+                          child: questionViewModel.currentQuestionIndex ==
                                   questionsIndex - 1
                               ? Text(
                                   'Submit',
@@ -311,13 +308,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           //streaks screen
-          StreaksScreen(),
+          const StreaksScreen(),
         ],
       ),
       floatingActionButton: //logout button
           IconButton(
         iconSize: 20,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.purple[300]),
           shape: MaterialStateProperty.all(

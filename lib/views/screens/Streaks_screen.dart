@@ -38,7 +38,7 @@ class _StreaksScreenState extends State<StreaksScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final QuestionViewModel _questionViewModel =
+    final QuestionViewModel questionViewModel =
         Provider.of<QuestionViewModel>(context);
 
     List<DateTime> formattedDates =
@@ -73,7 +73,7 @@ class _StreaksScreenState extends State<StreaksScreen> {
                       minWidth: MediaQuery.of(context).size.width * 0.4,
                       minHeight: MediaQuery.of(context).size.height * 0.15,
                     ),
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.purple.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(20),
@@ -98,7 +98,7 @@ class _StreaksScreenState extends State<StreaksScreen> {
                             ),
                           ),
                           Text(
-                            '${_questionViewModel.streakCount}',
+                            '${questionViewModel.streakCount}',
                             style: GoogleFonts.firaSansCondensed(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class _StreaksScreenState extends State<StreaksScreen> {
                       minWidth: MediaQuery.of(context).size.width * 0.4,
                       minHeight: MediaQuery.of(context).size.height * 0.15,
                     ),
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.purple.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(20),
@@ -140,7 +140,7 @@ class _StreaksScreenState extends State<StreaksScreen> {
                             ),
                           ),
                           Text(
-                            '${_questionViewModel.allTimeHighestStreak}',
+                            '${questionViewModel.allTimeHighestStreak}',
                             style: GoogleFonts.firaSansCondensed(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
@@ -152,16 +152,16 @@ class _StreaksScreenState extends State<StreaksScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               //a stylish divider
-              Divider(
+              const Divider(
                 color: Colors.purple,
                 thickness: 2,
               ),
 
-              //streakcalendar
+              //calendar
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CleanCalendar(
@@ -177,11 +177,11 @@ class _StreaksScreenState extends State<StreaksScreen> {
                     ),
                     navigatorDecoration: NavigatorDecoration(
                       navigateLeftButtonIcon: Icon(
-                        Iconsax.arrow_left,
+                        Icons.arrow_back_ios_rounded,
                         color: Colors.purple.shade400,
                       ),
                       navigateRightButtonIcon: Icon(
-                        Iconsax.arrow_right,
+                        Icons.arrow_forward_ios_rounded,
                         color: Colors.purple.shade400,
                       ),
                     ),
@@ -244,6 +244,28 @@ class _StreaksScreenState extends State<StreaksScreen> {
                   ),
                 ),
               ),
+              const Divider(
+                color: Colors.purple,
+                thickness: 2,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    Text(
+                      'TimeLine',
+                      style: GoogleFonts.firaSansCondensed(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(
+                color: Colors.purple,
+                thickness: 2,
+              ),
 
               //a list of streak dates
               Expanded(
@@ -252,6 +274,19 @@ class _StreaksScreenState extends State<StreaksScreen> {
                   itemBuilder: (context, index) {
                     streakDates.sort((a, b) => b.compareTo(a));
                     return ListTile(
+                      leading: const Icon(
+                        Iconsax.calendar,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+                      trailing: questionViewModel.allTimeHighestStreak > 0
+                          ? const Icon(
+                              Iconsax.tick_circle,
+                              color: Colors.green,
+                            )
+                          : const Icon(
+                              Iconsax.close_square,
+                              color: Colors.red,
+                            ),
                       title: Text(
                         ' ${streakDates[index].toString().substring(0, 10)}',
                         style: GoogleFonts.firaSansCondensed(
