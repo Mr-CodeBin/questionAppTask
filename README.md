@@ -1,5 +1,6 @@
 # mcqtest
 
+# Description:
 - **MVVM Architecture**:
      Ensures a clear and organized structure by separating code into models, views, and viewmodels.
 - **Provider for State Management**:
@@ -31,25 +32,25 @@
 ## Screens
 
 1. **Authentication Screen**:
-   - Users can sign up or log in using Firebase Authentication.
+        - Users can sign up or log in using Firebase Authentication.
 2. **Daily MCQ Screen**:
-   - Displays daily multiple-choice questions for users to answer.
+        - Displays daily multiple-choice questions for users to answer.
 3. **Streak Screen**:
-   - Shows the user's streak based on consecutive days of practice.
+        - Shows the user's streak based on consecutive days of practice.
 
 ## Dependencies
- - flutter
- - provider
- - firebase_core
- - firebase_auth
- - cloud_firestore
- - 
+      - flutter
+      - provider
+      - firebase_core
+      - firebase_auth
+      - cloud_firestore
+      - 
 
 ## Usage
 1. Authentication Screen
- - Users can sign up or log in using their email and password.
+      - Users can sign up or log in using their email and password.
 2. Daily MCQ Screen
- - Displays a list of daily multiple-choice questions.
- - Users can select an answer for each question.
+      - Displays a list of daily multiple-choice questions.
+      - Users can select an answer for each question.
 3. Streak Screen
- - Displays the user's streak based on consecutive days of answering questions.
+      - Displays the user's streak based on consecutive days of answering questions.
