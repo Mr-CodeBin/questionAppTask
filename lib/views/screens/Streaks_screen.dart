@@ -211,6 +211,8 @@ class _StreaksScreenState extends State<StreaksScreen> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
+                      datesBorderColor: Colors.amber,
+                      datesBorderRadius: 4,
                     ),
                   ),
 
