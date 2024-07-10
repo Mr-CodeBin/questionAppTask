@@ -1,5 +1,17 @@
 # mcqtest
 
+- **MVVM Architecture**:
+     Ensures a clear and organized structure by separating code into models, views, and viewmodels.
+- **Provider for State Management**:
+     Uses the provider package to manage the state of the application.
+- **Firebase Integration**:
+     Utilizes Firebase Authentication for user login/signup and Firebase Firestore for data storage.
+- **Daily MCQs**:
+     Allows users to answer daily multiple-choice questions.
+- **Streak Tracking**:
+     Tracks and displays the user's streak based on consecutive days of practice.
+
+
 ## Project Setup:
 
 1. **Clone the repository:**
@@ -18,9 +30,12 @@
    
 ## Screens
 
-1. **Authentication Screen**: Users can sign up or log in using Firebase Authentication.
-2. **Daily MCQ Screen**: Displays daily multiple-choice questions for users to answer.
-3. **Streak Screen**: Shows the user's streak based on consecutive days of practice.
+1. **Authentication Screen**:
+   - Users can sign up or log in using Firebase Authentication.
+2. **Daily MCQ Screen**:
+   - Displays daily multiple-choice questions for users to answer.
+3. **Streak Screen**:
+   - Shows the user's streak based on consecutive days of practice.
 
 ## Dependencies
  - flutter
