@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mcqtest/models/question_model.dart';
@@ -304,24 +305,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                         ),
-
-                        //logout button
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.infinity, 50),
-                            backgroundColor: Colors.red,
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          onPressed: () {
-                            _questionViewModel.clearQuestions();
-
-                            AuthViewModel().signOut();
-                          },
-                          child: const Text('Logout'),
-                        ),
                       ],
                     ),
             ),
@@ -330,6 +313,48 @@ class _HomeScreenState extends State<HomeScreen> {
           //streaks screen
           StreaksScreen(),
         ],
+      ),
+      floatingActionButton: //logout button
+          IconButton(
+        iconSize: 20,
+        padding: EdgeInsets.all(10),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.purple[300]),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
+          ),
+        ),
+        onPressed: () {
+          //dialog box alert to confirm logout and exit the app using systemNavigator.pop()
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Logout'),
+                content: const Text('Are you sure you want to logout?'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('No'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Provider.of<AuthViewModel>(context, listen: false)
+                          .signOut();
+                      SystemNavigator.pop();
+                    },
+                    child: const Text('Yes'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        icon: const Icon(Icons.logout),
       ),
       bottomNavigationBar: MotionTabBar(
         initialSelectedTab: 'Home',

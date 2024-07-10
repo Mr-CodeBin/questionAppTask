@@ -24,6 +24,11 @@ class AuthViewModel extends ChangeNotifier {
   Future<void> signInWithEmailAndPassword(
       String email, String password, BuildContext context) async {
     if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Email and Password cannot be empty"),
+        ),
+      );
       return;
     }
 
