@@ -8,10 +8,7 @@
    git clone https://github.com/Mr-CodeBin/questionAppTask.git
    cd <project folder name>
    code .
-  
-
-
-
+   
 ## Screens
 
 1. **Authentication Screen**: Users can sign up or log in using Firebase Authentication.
