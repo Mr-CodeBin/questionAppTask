@@ -1,6 +1,6 @@
 # mcqtest
 ## APP LINK:
- the APK file [here](https://github.com/Mr-CodeBin/questionAppTask.git/lib/APK/app-release.apk).
+ the APK file [here](https://github.com/Mr-CodeBin/questionAppTask/blob/main/lib/APK/app-release.apk).
 
 
 # Description:
