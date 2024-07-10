@@ -1,16 +1,29 @@
 # mcqtest
 
-A new Flutter project.
+## Project Setup:
 
-## Getting Started
+1. **Clone the repository:**
 
-This project is a starting point for a Flutter application.
+   ```sh
+   git clone https://github.com/Mr-CodeBin/questionAppTask.git
+   cd <project folder name>
+   code .
+  
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screens
+
+1. **Authentication Screen**: Users can sign up or log in using Firebase Authentication.
+2. **Daily MCQ Screen**: Displays daily multiple-choice questions for users to answer.
+3. **Streak Screen**: Shows the user's streak based on consecutive days of practice.
+
+
+Usage
+1. Authentication Screen
+2. Users can sign up or log in using their email and password.
+3. Daily MCQ Screen
+4. Displays a list of daily multiple-choice questions.
+5. Users can select an answer for each question.
+6. Streak Screen
+7. Displays the user's streak based on consecutive days of answering questions.
