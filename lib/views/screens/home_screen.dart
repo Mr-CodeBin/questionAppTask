@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mcqtest/models/question_model.dart';
 import 'package:mcqtest/viewModels/auth_vm.dart';
 import 'package:mcqtest/viewModels/ques_vm.dart';
+import 'package:mcqtest/views/Auth/login.dart';
 import 'package:mcqtest/views/screens/Streaks_screen.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:provider/provider.dart';
@@ -342,6 +343,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       Provider.of<AuthViewModel>(context, listen: false)
                           .signOut();
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => LoginScreen()));
                       SystemNavigator.pop();
                     },
                     child: const Text('Yes'),
